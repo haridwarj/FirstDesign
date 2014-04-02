@@ -42,7 +42,7 @@ public class FirstDesign extends TitleAreaDialog {
 	public FirstDesign(Shell parentShell) {
 		super(parentShell);
 		//setErrorMessage("Cannot Open");
-		setShellStyle(SWT.RESIZE | SWT.TITLE);
+		setShellStyle(SWT.BORDER | SWT.RESIZE | SWT.TITLE | SWT.SYSTEM_MODAL);
 		setTitle("Open PMS");
 		
 	}
@@ -90,7 +90,7 @@ public class FirstDesign extends TitleAreaDialog {
 		table.setHeaderVisible(true);
 		
 		
-        String[] titles = { "Id", "Message", "Author", "Committer", "Created Date&Time" };
+        String[] titles = { "Id", "Message", "Author","Authored Date", "Committer", "Committed Date" };
         for (int i = 0; i < titles.length; i++) {
             TableColumn column = new TableColumn(table, SWT.NONE);
             column.setText(titles[i]);
@@ -150,25 +150,7 @@ public class FirstDesign extends TitleAreaDialog {
 		IObservableValue observeSizeTableObserveWidget = WidgetProperties.size().observe(table);
 		IObservableValue accessiblecontrolaccessibleGetShellObserveValue = PojoProperties.value("accessible.control.accessible").observe(getShell());
 		bindingContext.bindValue(observeSizeTableObserveWidget, accessiblecontrolaccessibleGetShellObserveValue, null, null);
-		//
-		IObservableValue observeBoundsTableObserveWidget = WidgetProperties.bounds().observe(table);
-		IObservableValue displayGetShellObserveValue = PojoProperties.value("display").observe(getShell());
-		bindingContext.bindValue(observeBoundsTableObserveWidget, displayGetShellObserveValue, null, null);
-		//
-		IObservableValue observeBoundsTableObserveWidget_1 = WidgetProperties.bounds().observe(table);
-		IObservableValue windowsGetWindowManagerObserveValue = PojoProperties.value("windows").observe(getWindowManager());
-		bindingContext.bindValue(observeBoundsTableObserveWidget_1, windowsGetWindowManagerObserveValue, null, null);
-		//
-		IObservableValue observeBoundsTableObserveWidget_2 = WidgetProperties.bounds().observe(table);
-		IObservableValue observeSizeTableObserveWidget_1 = WidgetProperties.size().observe(table);
-		bindingContext.bindValue(observeBoundsTableObserveWidget_2, observeSizeTableObserveWidget_1, null, null);
-		//
-		IObservableValue observeLocationContainerObserveWidget = WidgetProperties.location().observe(container);
-		IObservableValue fullScreenGetShellObserveValue = PojoProperties.value("fullScreen").observe(getShell());
-		bindingContext.bindValue(observeLocationContainerObserveWidget, fullScreenGetShellObserveValue, null, null);
-		//
 		
-		//
 		return bindingContext;
 	}
 }
